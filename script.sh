@@ -3,7 +3,9 @@
 x=$(( 0 + RANDOM % (5 - 0 + 1) ))
 echo "=========================================="
 echo "  Guest a number to win between 0 to 5: "
- read -p "Enter the value you guest: " guess
+echo "=========================================="
+echo "Enter the value you guest: "
+ read -r y
 if [[ $y -eq $x ]]; then
   echo "You WIN"
 elif [[ $y -lt $x ]]; then
