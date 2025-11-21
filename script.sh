@@ -1,15 +1,21 @@
-#!/bin/bash
+ #!/bin/bash
 
-x=$(( 0 + RANDOM % (5 - 0 + 1) ))
-echo "=========================================="
-echo "  Guest a number to win between 0 to 5: "
-echo "=========================================="
-echo "Enter the value you guest: "
- read -r y
-if [[ $y -eq $x ]]; then
-  echo "You WIN"
-elif [[ $y -lt $x ]]; then
-   echo "your too low"
-   echo "you below the win number"
-   fi
+secret_number=$((RANDOM % 50 1))
+guessed=false
 
+echo "Welcome to My Guessing Game"
+echo "Guess a number between 1 to 50."
+echo
+while [ "$y" = false ]; do
+    
+    read -p "Enter your guess: " y
+    
+    if [ "$y"-eq "secret_number"]; then
+        echo " Congratulations! You guessed it!"
+        
+    elif ["$y"-lt "secret_number"]; then
+        echo "Too low! Try again."
+    elif ["$y"-gt "secret_number"];then
+        echo "Too high! Try again."
+    fi
+    
