@@ -11,11 +11,11 @@ while [ $guessed -eq 0 ]
     read -r "Enter your guess: " user_guess
     
     
- if [ "$guessed" $secret_number ]; then
+ if [ $guessed -eq $secret_number ]; then
         echo " Congratulations! You guessed it!"
         echo "The number was $secret_number"
         guessed -eq true
- elif [ "$guessed" -lt $secret_number ];then
+ elif [ guessed -lt $secret_number ];then
      echo "Too low! Try again."
  else
      echo "Too high! Try again."
