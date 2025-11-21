@@ -1,21 +1,28 @@
- #!/bin/bash
-
-secret_number=$((RANDOM % 50 1))
+#!/bin/bash
+secret_number=$((RANDOM % 100 + 1))
 guessed=false
+attempts=0
 
-echo "Welcome to My Guessing Game"
-echo "Guess a number between 1 to 50."
+echo "Welcome to my Guessing Game!"
+echo "Guess a number 1 to 100."
 echo
-while [ "$y" = false ]; do
+
+while [ "$y" -eq false ]; do
+
+    read -p "Enter your guess: " user_guess
     
-    read -p "Enter your guess: " y
+    ((attempts++))
     
-    if [ "$y"-eq "secret_number"]; then
+ if [ "$y" -eq "$secret_number" ]; then
         echo " Congratulations! You guessed it!"
-        
-    elif ["$y"-lt "secret_number"]; then
-        echo "Too low! Try again."
-    elif ["$y"-gt "secret_number"];then
-        echo "Too high! Try again."
-    fi
+        echo "The number was $secret_number"
+        echo "It took you $attempts attempts."
+        y=true
+ elif [ "$y" -lt "$secret_number" ]; then
+     echo "Too low! Try again."
+ else
+     echo "Too high! Try again."
+ fi
+    
+ done
     
