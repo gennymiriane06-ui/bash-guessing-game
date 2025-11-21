@@ -8,7 +8,7 @@ echo
 
 while [ "$guessed" -eq 0" ]
 
-    read -p "Enter your guess: " user_guess
+    read -r "Enter your guess: " user_guess
     
     
  if [ "$guessed" $secret_number" ]; then
