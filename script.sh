@@ -1,25 +1,33 @@
 #!/bin/bash
-secret_number=$((RANDOM % 100 + 1))
-guessed=0
+import random
 
-echo "Welcome to my Guessing Game!"
-echo "Guess a number 1 to 100."
-echo
+# Generate a random number between 1 and 100
+secret_number = random.randint(1, 100)
+attempts = 0
+guessed = False
 
-while [ $guessed -eq 0 ]
+print("Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.")
+print()
 
-    read -r "Enter your guess: " user_guess
+# Main game loop using while
+while not guessed:
+    # Get user input
+    try:
+        guess = int(input("Enter your guess: "))
+        attempts += 1
+        
+        # Check the guess
+        if guess < secret_number:
+            print("Too low! Try again.")
+        elif guess > secret_number:
+            print("Too high! Try again.")
+        else:
+            guessed = True
+            print(f"\nCongratulations! You guessed it in {attempts} attempts!")
+            print(f"The number was {secret_number}")
     
-    
- if [ $guessed -eq $secret_number ]; then
-        echo " Congratulations! You guessed it!"
-        echo "The number was $secret_number"
-        guessed -eq true
- elif [ guessed -lt $secret_number ];then
-     echo "Too low! Try again."
- else
-     echo "Too high! Try again."
- fi
-    
- done
-    
+    except ValueError:
+        print("Please enter a valid number!")
+
+print("\nThanks for playing!")
