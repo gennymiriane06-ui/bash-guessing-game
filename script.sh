@@ -6,12 +6,12 @@ echo "Welcome to my Guessing Game!"
 echo "Guess a number 1 to 100."
 echo
 
-while [ "$guessed" -eq 0" ]
+while [ $guessed -eq 0 ]
 
     read -r "Enter your guess: " user_guess
     
     
- if [ "$guessed" $secret_number" ]; then
+ if [ "$guessed" $secret_number ]; then
         echo " Congratulations! You guessed it!"
         echo "The number was $secret_number"
         guessed -eq true
